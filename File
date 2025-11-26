@@ -1,0 +1,17 @@
+import requests
+from bs4 import BeautifulSoup
+
+def fetch_page(url):
+    """Download page HTML."""
+    response = requests.get(url)
+    return response.text
+
+def extract_condition(html):
+    """Extract the General Condition block from the auction page."""
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Looks for the section containing "General Condition"
+    section = soup.find(string=lambda t: "General Condition" in t)
+    
+    if not section:
+        return "Condition section not found.\n"
