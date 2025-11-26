@@ -1,0 +1,7 @@
+project/
+│
+├── functions/
+│     └── scraper.py
+│
+└── main/
+      └── app.py
