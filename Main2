@@ -1,0 +1,14 @@
+
+    # Get parent container
+    container = section.find_parent()
+
+    # Collect all list items under it
+    items = container.find_all("li")
+    
+    result = "General Condition:\n"
+    for item in items:
+        result += f"- {item.get_text(strip=True)}\n"
+
+    return result
+
+from functions.scraper import fetch_page, extract_condition
